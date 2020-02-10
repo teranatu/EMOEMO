@@ -1,10 +1,13 @@
 @extends('layout')
 
 @section('content')
+
   <h1>Write a New memo</h1>
 
   <hr/>
 
+@include('errors.alert')
+  
   {!! Form::open(['url' => 'memos']) !!}
     <div class="form-group">
       {!! Form::label('memo_title', 'Title:') !!}

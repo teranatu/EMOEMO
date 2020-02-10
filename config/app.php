@@ -136,10 +136,12 @@ return [
 
     'providers' => [
 
-         /*
+        /*
          * twitterlogin
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
+        
+
 
         /*
          * Laravel Framework Service Providers...
@@ -166,6 +168,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        
 
         /*
          * Package Service Providers...
@@ -179,7 +182,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        \SocialiteProviders\Manager\ServiceProvider::class,
+        \SocialiteProviders\Manager\ServiceProvider::class,
     ],
 
     /*

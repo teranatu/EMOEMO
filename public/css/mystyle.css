@@ -1,3 +1,160 @@
-.header {
-  height: 80px;
+.headerimage {
+  background:rgb(255, 255, 255) url(https://res.cloudinary.com/dsv09nxlz/image/upload/v1581306848/PROJECT_EMOEMO/EMOEMO_LP/front_cat_aka5gx.jpg) no-repeat center center;
+  background-size: auto;
+  height: 800px;
+}
+
+.top_view1 {
+position: absolute;
+width: 294px;
+height: 167px;
+left: 0px;
+top: 207px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 900;
+font-size: 46px;
+line-height: 54px;
+text-align: center;
+
+color: #E7B22C;
+
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+transform: rotate(-20deg);
+}
+
+.top_view2 {
+
+  position: absolute;
+  width: 331.77px;
+  height: 166.79px;
+  left: 388px;
+  top: 207.55px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 46px;
+  line-height: 54px;
+  text-align: center;
+
+  color: #E7B22C;
+
+  
+  color: #E7B22C;
+  
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  transform: rotate(-20deg);
+}
+
+.top_view3 {
+position: absolute;
+width: 368.53px;
+height: 278.02px;
+left: 985px;
+top: 214.04px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 900;
+font-size: 46px;
+line-height: 54px;
+text-align: center;
+
+color: #E7B22C;
+
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+transform: rotate(-20deg);
+}
+
+.top_btn1 {
+  position: absolute;
+  width: 445px;
+  height: 76px;
+  left: 166px;
+  top: 500px;
+  background: #E7B22C;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 60px;
+}
+
+.top_btn2 {
+  position: absolute;
+  width: 383px;
+  height: 76px;
+  left: 200px;
+  top: 630px;
+  background: #92D7DC;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 60px;
+}
+
+.font_recommend {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 42px;
+
+  color: #FFFFFF;}
+
+  .landing_message {
+  width: 100%;
+  height: 180px;
+
+  background: #522F6B;
+  }
+
+.color1 {
+  color: #F8B42B;
+}
+.color2 {
+  color: #00F0FF;
+}
+.color3 {
+  color: #F152FF;
+}
+.color4 {
+  color: #FFFFFE;
+}
+
+
+.color_w h2 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.color_w p {
+  margin-top: 20px;
+  color: #FFFFFE;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.parent {
+  /*親要素*/
+  position: relative;
+}
+
+.parent div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+}
+
+.flow {
+  background: #373642;
 }

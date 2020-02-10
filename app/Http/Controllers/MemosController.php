@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\MemoRequest;
 use App\Memo;
+use Illuminate\Support\Facades\Auth;
 
 class MemosController extends Controller
 {
@@ -35,13 +36,11 @@ class MemosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(MemoRequest $request)
     {
-        $inputs = \Request::all();
-
-        Memo::create($inputs);
-
-        return redirect('memos');
+        Auth::user()->memos()->create($request->validated());
+        // Memo::create($request->validated());
+        return redirect('memos')->with('status', 'メモ作成完了です');;
     }
 
     /**
@@ -65,7 +64,9 @@ class MemosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $memo = Memo::findOrFail($id);
+
+        return view('memos.edit', compact('memo'));
     }
 
     /**
@@ -75,9 +76,14 @@ class MemosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MemoRequest $request, $id)
     {
-        //
+        $memo = Memo::findOrFail($id);
+        
+        $memo->update($request->validated());
+
+        return redirect(url('memos', [$memo->id]))->with('status', '編集完了です');;
+        
     }
 
     /**
@@ -88,6 +94,10 @@ class MemosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $memo = Memo::findOrFail($id);
+
+        $memo->delete();
+
+        return redirect('memos')->with('status', '削除しました。');
     }
 }

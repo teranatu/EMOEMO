@@ -28,8 +28,7 @@ Route::resource('memos', 'MemosController');
 
 /* twitter login root */
 // ログインURL
-Route::get('auth/twitter', 'Auth\TwitterController@redirectToProvider');
-// コールバックURL
-Route::get('auth/twitter/callback', 'Auth\TwitterController@handleProviderCallback');
-// ログアウトURL
-Route::get('auth/twitter/logout', 'Auth\TwitterController@logout');
+Route::prefix('auth')->group(function () {
+    Route::get('twitter', 'AuthController@login');
+    Route::get('twitter/callback', 'AuthController@callback');
+});

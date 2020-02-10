@@ -15,7 +15,7 @@ class CreateMemosTable extends Migration
     {
         Schema::create('memos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('memo_title', 50);
             $table->text('memo_text');
             $table->boolean('tweeted')->default(false);

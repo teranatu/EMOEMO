@@ -15,7 +15,8 @@
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^1.1",
-        "laravelcollective/html": "^6.0"
+        "laravelcollective/html": "^6.0",
+        "socialiteproviders/twitter": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
@@ -40,7 +41,8 @@
         "classmap": [
             "database/seeds",
             "database/factories"
-        ]
+        ],
+        "files": ["app/Http/helper.php"]
     },
     "autoload-dev": {
         "psr-4": {

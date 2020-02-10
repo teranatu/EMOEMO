@@ -23,7 +23,6 @@ class MemosTableSeeder extends Seeder
             Memo::create([
                 'memo_title' => $faker->word(),
                 'memo_text' => $faker->paragraph(),
-                'user_id' => 1
             ]);
         }
     }
