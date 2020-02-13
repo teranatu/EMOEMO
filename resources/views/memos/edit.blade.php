@@ -20,6 +20,21 @@
       {!! Form::submit('Add Memo', ['class' => 'btn btn-primary form-control']) !!}
     </div>
 
+    <div class="form-group">
+      @for ($i =1; $i <5; $i++)
+      <div>
+        <label for="image{{ $i }}" class="">画像{{ $i }}</label>
+        <div>
+          <input type="file" name="image_name{{ $i }}">
+          @if ($errors->has('logo'))
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $errors->first('logo') }}</strong>
+          </span>
+          @endif
+        </div>
+      </div>
+      @endfor
+    </div>
     
   {!! Form::close() !!}
   

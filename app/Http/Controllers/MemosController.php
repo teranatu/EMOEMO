@@ -176,11 +176,15 @@ class MemosController extends Controller
         $aUpdateParams = array();
         $aResUpdate = array();
 
-        $aImgTmpName = Image::where('memo_id', $id)->first()->image_name;
+        // $aImgTmpNames = Image::where('memo_id', $id)->get('image_name');
+        // $aImgTmpNames = Image::where('memo_id', $id)->get('image_name');
+        $aImgTmpNames = Image::where('memo_id', $id)->get();
         
-        //PHPでアップロードした画像をbase64エンコードします。
-        $sUpImgBase64 = base64_encode(file_get_contents($aImgTmpName));
-        
+        foreach($aImgTmpNames as $sImgTmpName){
+            $sImgTmpName = $sImgTmpName->image_name;
+            
+            //PHPでアップロードした画像をbase64エンコードします。
+        $sUpImgBase64 = base64_encode(file_get_contents($sImgTmpName));
         //パラメータの作成
         $aUploadImgParams = array('media_data' =>  $sUpImgBase64);
         
@@ -193,6 +197,12 @@ class MemosController extends Controller
         if($iCnt > 0) $sMediaIds .= ',';
         
         $sMediaIds .= $aResUpload['media_id'];
+
+        $iCnt++;
+    if($iCnt > 3) break;//最大4ファイル
+    }
+
+
         $tweet = Memo::findOrFail($id)->memo_text;
         //メディアIDとツイート文字列のパラメータを作成
         $aUpdateParams = array(
@@ -203,7 +213,7 @@ class MemosController extends Controller
         //メディアIDとツイート文字列をTwitterに送信
         $iImgCode = $twObj->request( 'POST', "https://api.twitter.com/1.1/statuses/update.json", $aUpdateParams);
 
-      
+    
         
 
 
