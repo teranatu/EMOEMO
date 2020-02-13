@@ -169,21 +169,22 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         
-
+        
         /*
-         * Package Service Providers...
-         */
-
+        * Package Service Providers...
+        */
+        
         /*
-         * Application Service Providers...
-         */
+        * Application Service Providers...
+        */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         \SocialiteProviders\Manager\ServiceProvider::class,
-        \SocialiteProviders\Manager\ServiceProvider::class,
+        Thujohn\Twitter\TwitterServiceProvider::class,
+        JD\Cloudder\CloudderServiceProvider::class,
     ],
 
     /*
@@ -236,6 +237,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         //twitterlogin
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Twitter' => Thujohn\Twitter\Facades\Twitter::class,
+        'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
     ],
 
 ];

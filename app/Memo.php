@@ -10,11 +10,16 @@ class Memo extends Model
 
     public function user()
     {
-      return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User');
     }
 
     public function hashtags()
     {
         return $this->belongsToMany('App\Hashtag')->withTimestamps();
+    }
+
+    public function images()
+    {
+        return $this->hasMany('App\Image');
     }
 }

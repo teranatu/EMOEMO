@@ -18,6 +18,14 @@
   <hr/>
 
   <div class="d-inline btn btn-danger">
+    <a href="{{ route('tweet', $memo->id) }}">
+      tweetする
+    </a>
+  </div>
+
+  <hr/>
+
+  <div class="d-inline btn btn-danger">
     <a href="{{ action('MemosController@edit', [$memo->id]) }}">
       編集
     </a>

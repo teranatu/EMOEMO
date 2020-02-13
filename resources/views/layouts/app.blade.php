@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>EMOEMO</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -25,8 +25,9 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="https://res.cloudinary.com/dsv09nxlz/image/upload/c_scale,h_44/v1581306872/PROJECT_EMOEMO/EMOEMO_LP/logo_k5jvi5.png" alt="">
                 </a>
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -35,7 +36,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">aaaaaaaaa</a>
+                            <a class="nav-link" href="#">tweeted</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">aaaaaa</a>
@@ -57,6 +58,15 @@
                                 </li>
                             @endif
                         @else
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tweeted') }}">tweeted</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('memos.index') }}">all</a>
+                        </li>
+                        <li class="nav-item">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('memos.create',null ,false) }}">メモる</a>
                         </li>
@@ -71,7 +81,6 @@
                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>

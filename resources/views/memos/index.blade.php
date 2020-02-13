@@ -20,8 +20,7 @@
                       <a href="{{ url('memos', $memo->id) }}">
                         {{ $memo->memo_title }}
                       </a>
-                      <p>{{ $memo->memo_text }}</p>
-                      <a href="#" class="btn-card">#</a>   
+                      <p>{{ $memo->memo_text }}</p>  
                     </div>
                   </div>
               </div>
