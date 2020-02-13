@@ -25,7 +25,6 @@ class AuthController extends Controller
             // OAuthによるユーザー情報取得失敗
             return redirect()->route('/')->withErrors('ユーザー情報の取得に失敗しました。');
         }
-        dd($userSocial);
         //メールアドレスで登録状況を調べる
         $user = User::where(['email' => $userSocial->getEmail()])->first();
 

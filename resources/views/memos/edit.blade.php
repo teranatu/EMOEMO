@@ -19,5 +19,8 @@
     <div class="form-group">
       {!! Form::submit('Add Memo', ['class' => 'btn btn-primary form-control']) !!}
     </div>
+
+    
   {!! Form::close() !!}
+  
 @endsection('content')

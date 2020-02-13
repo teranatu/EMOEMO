@@ -32,3 +32,6 @@ Route::prefix('auth')->group(function () {
     Route::get('twitter', 'AuthController@login');
     Route::get('twitter/callback', 'AuthController@callback');
 });
+
+Route::get('/memos/{memo}/tweet', 'MemosController@tweet')->name('tweet');
+Route::get('/tweeted', 'MemosController@sortmemotweeted')->name('tweeted');
