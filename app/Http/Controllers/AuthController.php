@@ -9,6 +9,7 @@ use App\User;
 use Auth;
 use Illuminate\Support\Facades\Storage;
 
+
 class AuthController extends Controller
 {
     public function login()
@@ -21,6 +22,8 @@ class AuthController extends Controller
         // ユーザ属性を取得
         try {
             $userSocial = Socialite::driver('twitter')->user();
+            $token = $userSocial->token;
+            $tokenSecret = $userSocial->tokenSecret;
         } catch (Exception $e) {
             // OAuthによるユーザー情報取得失敗
             return redirect()->route('/')->withErrors('ユーザー情報の取得に失敗しました。');
@@ -47,8 +50,9 @@ class AuthController extends Controller
             $newuser->email = $userSocial->getEmail();
             $newuser->twitter_id = $userSocial->getNickname();
             $newuser->avatar = $userSocial->getAvatar();
-            // $newuser->token = $userSocial->getToken();
-            // $newuser->tokenSecret = $userSocial->getTokenSecret();
+
+            $newuser->token = $token;
+            $newuser->tokenSecret = $tokenSecret;
 
             //ユーザ作成     
             $newuser->save();

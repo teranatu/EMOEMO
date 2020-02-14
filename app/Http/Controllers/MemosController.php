@@ -359,14 +359,16 @@ class MemosController extends Controller
     public function tweet($id)
     {
 
-        $sConsumerKey = "I2PvTDbwixPZ2QBPrxENcNcD3";
-        //Consumer secretの値を格納
-        $sConsumerSecret = "ghOk8XvZCXBdEdZ6VdIGfjwyCPSJfIYIy5oUhMRBn40dUCofgz";
-        //Access Tokenの値を格納
-        $sAccessToken = "1196262629712388096-JIaNgDNJCFcLREqxk5Jv2LQ2EurCVA";
-        //Access Token Secretの値を格納
-        $sAccessTokenSecret = "p192bz88G0gyuWFgVlvh0mZ0sl2AGHTubvYzQD7LbACbe";
+        $user = Auth::user();
 
+        $sConsumerKey = env('TWITTER_CONSUMER_KEY');
+        //Consumer secretの値を格納
+        $sConsumerSecret = env('TWITTER_CONSUMER_SECRET');
+        //Access Tokenの値を格納
+        $sAccessToken = $user->token;
+        //Access Token Secretの値を格納
+        $sAccessTokenSecret = $user->tokenSecret;
+        
         $twObj = NULL;
         $twObj = new tmhOauth(
             array(
@@ -422,29 +424,6 @@ class MemosController extends Controller
         
         //メディアIDとツイート文字列をTwitterに送信
         $iImgCode = $twObj->request( 'POST', "https://api.twitter.com/1.1/statuses/update.json", $aUpdateParams);
-
-    
-        
-
-
-        //OAuthオブジェクトを生成する
-        // $twObj = new tmhOauth(
-        // array(
-        // "consumer_key" => $sConsumerKey,
-        // "consumer_secret" => $sConsumerSecret,
-        // "token" => $sAccessToken,
-        // "secret" => $sAccessTokenSecret,
-        // "curl_ssl_verifypeer" => false,
-        // )
-        // );
-
-        // $sTweet = Memo::findOrFail($id)->memo_text;
-
-        // $status = $tweet;
-
-        // Twitter::postTweet(
-        //     ['status' => $status, 'media_ids' => $uploaded_media->media_id_string, 'format' => 'json']
-        // );
         
         $tweeted = Memo::find($id);
         $tweeted->tweeted = 1;
