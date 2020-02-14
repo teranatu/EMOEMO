@@ -7,40 +7,56 @@
     </div>
   @endif
   
-  <h1>{{ $memo->memo_title }}</h1>
+  <h1>メモ名:{{ $memo->memo_title }}</h1>
 
   <hr/>
 
   <article>
+    <div>メモ内容</div>
     <div class="memo_text">{{ $memo->memo_text }}</div>
   </article>
 
   <hr/>
 
-  <div class="d-inline btn btn-danger">
+  <?php $i = 0; ?>
+    <div class="row">
+  @foreach($images as $image)
+<?php $i++;?>
+    <div class="col-3">
+        <label for="image" class="">画像<?php echo $i ?></label>
+        <img src="{{ $image->image_name }}" class="img-thumbnail w-100 h-50">
+        @if ($errors->has('logo'))
+        <span class="invalid-feedback" role="alert">
+          <strong>{{ $errors->first('logo') }}</strong>
+        </span>
+        @endif
+    </div>
+  @endforeach
+    </div>
+
+  <hr/>
+
+  <div class="d-inline">
     <a href="{{ route('tweet', $memo->id) }}">
-      tweetする
+    <input class="btn btn-primary" type="submit" value="tweetする">
     </a>
   </div>
 
-  <hr/>
 
-  <div class="d-inline btn btn-danger">
+  <div class="d-inline">
     <a href="{{ action('MemosController@edit', [$memo->id]) }}">
-      編集
+    <input class="btn btn-primary" type="submit" value="編集">
     </a>
   </div>
 
-  <hr/>
+
 
   {!! delete_form(['memos', $memo->id]) !!}
 
 
-  <hr/>
-
-  <div class="d-inline btn btn-danger">
-  <a href="{{ url('memos') }}">
-      戻る
+  <div class="d-inline">
+    <a href="{{ url('memos') }}">
+    <input class="btn btn-primary" type="submit" value="戻る">
     </a>
   </div>
 @endsection

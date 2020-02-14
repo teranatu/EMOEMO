@@ -34,37 +34,37 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <!-- <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#">tweeted</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">aaaaaa</a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
+                            </li> -->
                             <li class="nav-item">
-                            <a href="/auth/twitter">twitterログイン</a>
+                            <a class="nav-link" href="/auth/twitter">twitterログイン</a>
                             </li>
-                            @if (Route::has('register'))
+                            <!-- @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif -->
                         @else
 
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('tweeted') }}">tweeted</a>
+                            <a class="nav-link" href="{{ route('tweeted') }}">ツイート済</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('memos.index') }}">all</a>
+                            <a class="nav-link" href="{{route('memos.index') }}">全てのメモ</a>
                         </li>
                         <li class="nav-item">
                         <li class="nav-item">

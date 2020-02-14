@@ -53,11 +53,12 @@ class MemosController extends Controller
     public function store(MemoRequest $request)
     {
         //メモを作成し格納
-        $memo = Auth::user()->memos()->create($request->validated());
+        $memo = Auth::user()->memos()->create($request->validated())->with('status');
         //画像ファイルを配列に格納
         $images = $request->file();
         
         //imagesを回す
+    $i = 0;
     foreach ($images as $image) {
         $image_name = $image->getRealPath();
         // Cloudinaryへアップロード
@@ -71,8 +72,10 @@ class MemosController extends Controller
             'height'    => $height
             ]);
         //imageを作ってdbに格納
+        $i++;
         $image = new Image;
         $image->image_name = $logoUrl;
+        $image->image_number = $i;
         $image->memo_id = $memo->id;
         $image->save();
     }
@@ -89,8 +92,9 @@ class MemosController extends Controller
     public function show($id)
     {
         $memo = Memo::findOrFail($id);
+        $images = Image::where('memo_id', $id)->get();
 
-        return view('memos.show',compact('memo'));
+        return view('memos.show',compact('memo', 'images'));
     }
 
     /**
@@ -102,8 +106,9 @@ class MemosController extends Controller
     public function edit($id)
     {
         $memo = Memo::findOrFail($id);
+        $images = Image::where('memo_id', $id)->get();
 
-        return view('memos.edit', compact('memo'));
+        return view('memos.edit', compact('memo', 'images'));
     }
 
     /**
@@ -113,11 +118,216 @@ class MemosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(MemoRequest $request, $id)
+    public function update(MemoRequest $request , $id)
     {
         $memo = Memo::findOrFail($id);
-        
         $memo->update($request->validated());
+        
+        //メモを作成し格納
+        // $memo = Auth::user()->memo()->update($request->validated());
+        //画像ファイルを順番に格納
+        $image1 = $request->file('image_name1');
+        $image2 = $request->file('image_name2');
+        $image3 = $request->file('image_name3');
+        $image4 = $request->file('image_name4');
+        
+        if ($image1)
+        {//1枚目にファイルがあった場合、分岐
+
+                if ($m_image = Image::where('memo_id', $id)->where('image_number', 1)->first())
+
+            {//元々ファイルが存在していた場合、置換する。
+                    $publicId = $m_image->image_name;
+                    Cloudder::destroyImage($publicId);
+                    Cloudder::delete($publicId);
+                    
+                    $image_name = $image1->getRealPath();
+                    // Cloudinaryへアップロード
+                    Cloudder::upload($image_name, null);
+                    list($width, $height) = getimagesize($image_name);
+                    // 直前にアップロードした画像のユニークIDを取得します。
+                    $publicId = Cloudder::getPublicId();
+                    // URLを生成します
+                    $ImageUrl = Cloudder::show($publicId, [
+                        'width'     => $width,
+                        'height'    => $height
+                        ]);
+                        
+                        //画像のURLを格納する
+                        $m_image->image_name = $ImageUrl;
+                        $m_image->save();
+            }
+            else 
+            {//元々ファイルが存在していない場合、新規で作成する。
+
+                    $image_name = $image1->getRealPath();
+                    // Cloudinaryへアップロード
+                    Cloudder::upload($image_name, null);
+                    list($width, $height) = getimagesize($image_name);
+                    // 直前にアップロードした画像のユニークIDを取得します。
+                    $publicId = Cloudder::getPublicId();
+                    // URLを生成します
+                    $logoUrl = Cloudder::show($publicId, [
+                        'width'     => $width,
+                        'height'    => $height
+                        ]);
+                    //imageを作ってdbに格納
+                    
+                    $image = new Image;
+                    $image->image_name = $logoUrl;
+                    $image->image_number = 1;
+                    $image->memo_id = $memo->id;
+                    $image->save();
+            }
+        } //分岐１終了
+
+        if ($image2) 
+        {//2枚目にファイルがあった場合、分岐
+
+            if ($m_image = Image::where('memo_id', $id)->where('image_number', 2)->first())
+            {//元々ファイルが存在していた場合、置換する。
+
+                    $publicId = $m_image->image_name;
+                    Cloudder::destroyImage($publicId);
+                    Cloudder::delete($publicId);
+                    
+                    $image_name = $image2->getRealPath();
+                    // Cloudinaryへアップロード
+                    Cloudder::upload($image_name, null);
+                    list($width, $height) = getimagesize($image_name);
+                    // 直前にアップロードした画像のユニークIDを取得します。
+                    $publicId = Cloudder::getPublicId();
+                    // URLを生成します
+                    $ImageUrl = Cloudder::show($publicId, [
+                        'width'     => $width,
+                        'height'    => $height
+                        ]);
+                        
+                        //画像のURLを格納する
+                        $m_image->image_name = $ImageUrl;
+                        $m_image->save();
+            }
+            else 
+            {//元々ファイルが存在していない場合、新規で作成する。
+
+                    $image_name = $image2->getRealPath();
+                    // Cloudinaryへアップロード
+                    Cloudder::upload($image_name, null);
+                    list($width, $height) = getimagesize($image_name);
+                    // 直前にアップロードした画像のユニークIDを取得します。
+                    $publicId = Cloudder::getPublicId();
+                    // URLを生成します
+                    $logoUrl = Cloudder::show($publicId, [
+                        'width'     => $width,
+                        'height'    => $height
+                        ]);
+                    //imageを作ってdbに格納
+                    
+                    $image = new Image;
+                    $image->image_name = $logoUrl;
+                    $image->image_number = 2;
+                    $image->memo_id = $memo->id;
+                    $image->save();
+            }
+        }//分岐2終了
+        
+        if ($image3)
+        {//3枚目にファイルがあった場合
+
+            if ($m_image = Image::where('memo_id', $id)->where('image_number', 3)->first())
+            {//元々ファイルが存在していた場合、置換する。
+
+                    $publicId = $m_image->image_name;
+                    Cloudder::destroyImage($publicId);
+                    Cloudder::delete($publicId);
+                    
+                    $image_name = $image3->getRealPath();
+                    // Cloudinaryへアップロード
+                    Cloudder::upload($image_name, null);
+                    list($width, $height) = getimagesize($image_name);
+                    // 直前にアップロードした画像のユニークIDを取得します。
+                    $publicId = Cloudder::getPublicId();
+                    // URLを生成します
+                    $ImageUrl = Cloudder::show($publicId, [
+                        'width'     => $width,
+                        'height'    => $height
+                        ]);
+                        
+                        //画像のURLを格納する
+                        $m_image->image_name = $ImageUrl;
+                        $m_image->save();
+            }
+                else 
+            {//元々ファイルが存在していない場合、新規で作成する。
+                    $image_name = $image3->getRealPath();
+                    // Cloudinaryへアップロード
+                    Cloudder::upload($image_name, null);
+                    list($width, $height) = getimagesize($image_name);
+                    // 直前にアップロードした画像のユニークIDを取得します。
+                    $publicId = Cloudder::getPublicId();
+                    // URLを生成します
+                    $logoUrl = Cloudder::show($publicId, [
+                        'width'     => $width,
+                        'height'    => $height
+                        ]);
+                    //imageを作ってdbに格納
+                    
+                    $image = new Image;
+                    $image->image_name = $logoUrl;
+                    $image->image_number = 3;
+                    $image->memo_id = $memo->id;
+                    $image->save();
+            }
+        }//分岐3終了
+
+        if ($image4) 
+        {//4枚目にファイルがあった場合
+            
+            if ($m_image = Image::where('memo_id', $id)->where('image_number', 4)->first())
+            {//元々ファイルが存在していた場合、置換する。
+
+                    $publicId = $m_image->image_name;
+                    Cloudder::destroyImage($publicId);
+                    Cloudder::delete($publicId);
+                    
+                    $image_name = $image4->getRealPath();
+                    // Cloudinaryへアップロード
+                    Cloudder::upload($image_name, null);
+                    list($width, $height) = getimagesize($image_name);
+                    // 直前にアップロードした画像のユニークIDを取得します。
+                    $publicId = Cloudder::getPublicId();
+                    // URLを生成します
+                    $ImageUrl = Cloudder::show($publicId, [
+                        'width'     => $width,
+                        'height'    => $height
+                        ]);
+                        
+                        //画像のURLを格納する
+                        $m_image->image_name = $ImageUrl;
+                        $m_image->save();
+            }
+                else 
+            {//元々ファイルが存在していない場合、新規で作成する。
+                    $image_name = $image4->getRealPath();
+                    // Cloudinaryへアップロード
+                    Cloudder::upload($image_name, null);
+                    list($width, $height) = getimagesize($image_name);
+                    // 直前にアップロードした画像のユニークIDを取得します。
+                    $publicId = Cloudder::getPublicId();
+                    // URLを生成します
+                    $logoUrl = Cloudder::show($publicId, [
+                        'width'     => $width,
+                        'height'    => $height
+                        ]);
+                    //imageを作ってdbに格納
+                    
+                    $image = new Image;
+                    $image->image_name = $logoUrl;
+                    $image->image_number = 4;
+                    $image->memo_id = $memo->id;
+                    $image->save();
+            }
+        }//分岐4終了
 
         return redirect(url('memos', [$memo->id]))->with('status', '編集完了です');;
         
