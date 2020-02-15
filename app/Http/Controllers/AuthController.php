@@ -52,7 +52,6 @@ class AuthController extends Controller
             $newuser->avatar = $userSocial->getAvatar();
             
             $newuser->token = $token;
-            dd($token);
             $newuser->tokenSecret = $tokenSecret;
 
             //ユーザ作成     
