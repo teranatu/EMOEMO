@@ -22,7 +22,6 @@ class AuthController extends Controller
         // ユーザ属性を取得
         try {
             $userSocial = Socialite::driver('twitter')->user();
-            dd($userSocial);
             $token = $userSocial->token;
             $tokenSecret = $userSocial->tokenSecret;
         } catch (Exception $e) {
@@ -31,7 +30,7 @@ class AuthController extends Controller
         }
         //メールアドレスで登録状況を調べる
         $user = User::where(['email' => $userSocial->getEmail()])->first();
-
+        
         //メールアドレス登録の有無で条件分岐
         if($user){
             //email登録がある場合の処理
@@ -51,8 +50,9 @@ class AuthController extends Controller
             $newuser->email = $userSocial->getEmail();
             $newuser->twitter_id = $userSocial->getNickname();
             $newuser->avatar = $userSocial->getAvatar();
-
+            
             $newuser->token = $token;
+            dd($token);
             $newuser->tokenSecret = $tokenSecret;
 
             //ユーザ作成     
