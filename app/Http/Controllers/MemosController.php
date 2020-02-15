@@ -53,10 +53,9 @@ class MemosController extends Controller
     public function store(MemoRequest $request)
     {
         //メモを作成し格納
-        $memo = Auth::user()->memos()->create($request->validated())->with('status');
+        $memo = Auth::user()->memos()->create($request->validated());
         //画像ファイルを配列に格納
         $images = $request->file();
-        
         //imagesを回す
     $i = 0;
     foreach ($images as $image) {
@@ -76,6 +75,7 @@ class MemosController extends Controller
         $image = new Image;
         $image->image_name = $logoUrl;
         $image->image_number = $i;
+        
         $image->memo_id = $memo->id;
         $image->save();
     }
@@ -424,6 +424,7 @@ class MemosController extends Controller
         
         //メディアIDとツイート文字列をTwitterに送信
         $iImgCode = $twObj->request( 'POST', "https://api.twitter.com/1.1/statuses/update.json", $aUpdateParams);
+
         
         $tweeted = Memo::find($id);
         $tweeted->tweeted = 1;

@@ -7,7 +7,6 @@
   <script src="/js/app.js" defer></script>
 </head>
 <body>
-    
     @yield('content')
 
 </body>
