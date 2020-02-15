@@ -53,7 +53,6 @@ class AuthController extends Controller
             
             $newuser->token = $token;
             $newuser->tokenSecret = $tokenSecret;
-dd($newuser);
             //ユーザ作成     
             $newuser->save();
             //ログインしてトップページにリダイレクト
