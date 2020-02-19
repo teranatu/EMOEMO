@@ -1,112 +1,23 @@
-.headerimage {
-  background:rgb(255, 255, 255) url(https://res.cloudinary.com/dsv09nxlz/image/upload/v1581306848/PROJECT_EMOEMO/EMOEMO_LP/front_cat_aka5gx.jpg) no-repeat center center;
-  background-size: auto;
-  height: 800px;
+.btn-2 {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0.4em 1.6em;
+  font-size: 2.0em;
+  color: #522F6B;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  background-color: #522F6B;
+  border-radius: 20px;
+  transition: 0.4s ease;
+  border: 5px rgb(168, 119, 202) solid;
 }
 
-.top_view1 {
-position: absolute;
-width: 294px;
-height: 167px;
-left: 0px;
-top: 207px;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: 900;
-font-size: 46px;
-line-height: 54px;
-text-align: center;
-
-color: #E7B22C;
-
-text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-transform: rotate(-20deg);
-}
-
-.top_view2 {
-
-  position: absolute;
-  width: 331.77px;
-  height: 166.79px;
-  left: 388px;
-  top: 207.55px;
-
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 46px;
-  line-height: 54px;
-  text-align: center;
-
-  color: #E7B22C;
-
-  
-  color: #E7B22C;
-  
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  transform: rotate(-20deg);
-}
-
-.top_view3 {
-position: absolute;
-width: 368.53px;
-height: 278.02px;
-left: 985px;
-top: 214.04px;
-
-font-family: Roboto;
-font-style: normal;
-font-weight: 900;
-font-size: 46px;
-line-height: 54px;
-text-align: center;
-
-color: #E7B22C;
-
-text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-transform: rotate(-20deg);
-}
-
-.top_btn1 {
-  position: absolute;
-  width: 445px;
-  height: 76px;
-  left: 166px;
-  top: 500px;
-  background: #E7B22C;
-
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 60px;
-}
-
-.top_btn2 {
-  position: absolute;
-  width: 383px;
-  height: 76px;
-  left: 200px;
-  top: 630px;
-  background: #92D7DC;
-
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 60px;
-}
-
-.font_recommend {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 36px;
-  line-height: 42px;
-
-  color: #FFFFFF;}
-
-  .landing_message {
-  width: 100%;
-  height: 180px;
-
+.btn-2:hover {
+  color: #fff;
   background: #522F6B;
-  }
+  transform: translate(-5px, -5px);
+}
 
 .color1 {
   color: #F8B42B;
@@ -121,25 +32,49 @@ transform: rotate(-20deg);
   color: #FFFFFE;
 }
 
+.color5 {
+  background-color: #FFFFEE;
+}
+
+.color6 {
+  color: #000003!important;
+}
+
+.m-0-a {
+  margin: 0 auto;
+}
+
+.bdr_obc {
+  border-radius: 50px;
+  object-fit: contain;
+}
+
+
+
+.color_w h1{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 24px;
+}
 
 .color_w h2 {
   font-family: Roboto;
   font-style: normal;
-  font-weight: 900;
-  font-size: 26px;
-  line-height: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 40px;
   text-align: center;
 }
 
 .color_w p {
-  margin-top: 20px;
   color: #FFFFFE;
   font-family: Roboto;
   font-style: normal;
-  font-weight: 900;
+  font-weight: normal;
   font-size: 14px;
-  line-height: 16px;
-  text-align: center;
+  line-height: 28px;
 }
 
 .parent {
@@ -155,6 +90,263 @@ transform: rotate(-20deg);
   transform : translate(-50%,-50%);
 }
 
-.flow {
+.mtb-6 {
+  padding-top: 130px!important;
+  padding-bottom: 130px!important;
+}
+
+.mt-6 {
+  padding-top: 130px!important;
+}
+
+.bgc {
   background: #373642;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+body {
+  overflow-x: hidden;
+  font-family: 'Lato', sans-serif;
+  color: #505962;
+}
+
+.offset:before {
+  display: block;
+  content: "";
+  height: 4rem;
+  margin-top: -4rem;
+}
+
+/*--- Navigation --*/
+
+.navbar {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .9rem;
+  letter-spacing: .1rem;
+  background: rgba(99, 58, 130, 0.6)!important;
+}
+
+.navbar-brand img {
+  height: 2rem;
+}
+
+.navbar-nav li {
+  padding-right: .7rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link.active, 
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #1ebba3;
+}
+
+/*--- Landing Page --*/
+
+.back{
+  /* 画面いっぱいに背景画像を貼り付ける */
+  background: url(https://res.cloudinary.com/dsv09nxlz/image/upload/v1581824472/PROJECT_EMOEMO/EMOEMO_LP/undraw_tweetstorm_49e8_2_m11gdt.png) no-repeat center;
+  background-size: cover;
+  position: relative;
+  height:100%;
+  z-index: 0;
+
+}
+.back::before{
+  /* 透過した黒を上から重ねるイメージ */
+  background-color: rgba(0,0,0,0.4);
+  /* 自由に位置指定 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+
+.caption {
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  top: 29%;
+  z-index: 2;
+  color: white;
+  text-transform: uppercase;
+}
+
+.caption h1 {
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: .3rem;
+  text-shadow: .1rem .1rem .8rem black;
+  padding-bottom: .8rem;
+}
+
+.caption h3 {
+  font-size: 30px;
+  text-shadow: .1rem .1rem .5rem black;
+  padding-bottom: 1.6rem;
+}
+
+.btn-lg {
+  border-width: medium;
+  border-radius: 0;
+  padding: .6rem 1.3rem;
+  font-size: 1.1rem;
+}
+
+
+
+/*--- Resources Section --*/
+
+.fixed {
+  background-image: url(https://res.cloudinary.com/dsv09nxlz/image/upload/v1581824472/PROJECT_EMOEMO/EMOEMO_LP/undraw_tweetstorm_49e8_2_m11gdt.png);
+  z-index: -1;
+}
+
+.dark {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  z-index: 1;
+  padding: 7rem 2rem;
+}
+
+
+.fixed-background h3 {
+  margin-bottom: 2rem;
+}
+
+.fixed-background p {
+  margin-top: 1.5rem;
+}
+
+
+/*--- Contact Section --*/
+
+
+@media (max-width: 767px) {
+  .caption h1 {
+    font-size: 2.3rem;
+    letter-spacing: .15rem;
+    padding-bottom: .5rem;
+  }
+  
+  .caption h3 {
+    font-size: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+  
+  .btn-lg {
+    padding: .5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .narrow h1 {
+    font-size: 1.5rem;
+  }
+
+  .clients img {
+    max-width: 50%;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/*============ BOOTSTRAP BREAK POINTS:
+
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+=============*/
+
+
+/*--- Extra Bootstrap Column Padding --*/
+[class*="col-"] {
+  padding: 1rem;
+}
+
+/*--- Bootstrap Mobile Gutter Fix --*/
+.row, .container-fluid {
+margin-left: 0px!important;
+margin-right: 0px!important;
+}
+
+/*--- Fix for Fixed Navbar jumping on scroll --*/
+.fixed-top  {
+-webkit-backface-visibility: hidden;
+}
+
+/*--- Fixed Landing Page Section --*/
+.landing {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: table;
+  z-index: -1;
+}
+.home-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+.home-inner {
+  position: fixed;
+  display: table;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+
+/*--- iOS Fixed Background Image --*/
+.fixed-background {
+  position: relative;
+  width: 100%;
+}
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -999!important;
+}
+.fixed {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
 }
