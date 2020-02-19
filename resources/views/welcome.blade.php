@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.apphome')
         
 @section('content')
 <!-- Start Home Section -->

@@ -25,7 +25,7 @@
 
 <!-- Navigation -->
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 	<a href="#" class="navbar-brand"><img src="https://res.cloudinary.com/dsv09nxlz/image/upload/c_scale,h_44/v1581306872/PROJECT_EMOEMO/EMOEMO_LP/logo_k5jvi5.png"></a>
 
 <!-- Collapse button -->
