@@ -37,7 +37,7 @@ class MemosController extends Controller
             return view('memos.index', compact('memos'));
         } else {
           // ログインしていないときの処理
-            return view('errors.403');
+            return redirect('/');
         }
         
     }
@@ -113,7 +113,7 @@ class MemosController extends Controller
             return view('memos.show',compact('memo', 'images'));
         } else {
             // ログインしていない時の処理
-            return redirect('/');
+            return view('errors.403');
         }
         
 
@@ -466,7 +466,7 @@ class MemosController extends Controller
     */
     public function sortmemotweeted()
     {
-        if (Auth::check()) {
+        if (Auth::check() ) {
             // ログインしている時の処理
             $memos = Memo::where('user_id', Auth::id())->where('tweeted', 1)->get();
             return view('memos/index',compact('memos'))->with('status', 'tweet済のメモ一覧です');
