@@ -23,7 +23,7 @@
       <input class="form-control" name="memo_title" type="text" id="memo_title">
     </div>
     <div class="form-group">
-      <label for="memo_text">メモ内容</label>
+      <label for="memo_text">メモ内容※こちらがツイートされます！</label>
       <textarea class="form-control" name="memo_text" cols="50" rows="10" id="memo_text"></textarea>
     </div>
     

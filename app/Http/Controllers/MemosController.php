@@ -466,10 +466,16 @@ class MemosController extends Controller
     */
     public function sortmemotweeted()
     {
-        $memos = Memo::where('tweeted', 1)->get();
+        if (Auth::check()) {
+            // ログインしている時の処理
+            $memos = Memo::where('user_id', Auth::id())->where('tweeted', 1)->get();
+            return view('memos/index',compact('memos'))->with('status', 'tweet済のメモ一覧です');
+        } else {
+            // ログインしていない時の処理
+            return redirect('/');
+        }
 
 
-        return view('memos/index',compact('memos'))->with('status', 'tweet済のメモ一覧です');
-
+        
     }
 }
