@@ -45,7 +45,7 @@
 
 <!-- buttons -->
   <div class="d-inline">
-    <a href="{{ url('memos') }}">
+    <a href="{{ route('memos.index') }}">
     <input class="btn btn-primary" type="submit" value="戻る">
     </a>
   </div>

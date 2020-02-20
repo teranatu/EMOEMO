@@ -1,32 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="memos_header"></div>
 @include('errors.alert')
 
-  <hr/>
-  <h1>Memos</h1>
-  <hr/>
+  <h1 class="text-center">Memos</h1>
 
-  <!-- details card section starts from here -->
-  <section class="details-card">
-      <div class="container">
-          <div class="row">
-            @foreach($memos as $memo)
-            @if($memo->user_id == Auth::id())
-              <div class="col-md-4 card">
-                  <div class="card-content">
-                    <div class="card-desc">
-                      <a href="{{ url('memos', $memo->id) }}">
-                        {{ $memo->memo_title }}
-                      </a>
-                      <p>{{ $memo->memo_text }}</p>  
-                    </div>
-                  </div>
-              </div>
-            @endif
-            @endforeach
-          </div>
+<!-- details card section starts from here -->
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <div class="card-columns">
+      @foreach($memos as $memo)
+      <div class="card memos_corner">
+        <div class="card-body">
+          <h5 class="card-title">{{ $memo->memo_title }}</h5>
+          <p class="card-text">{{ $memo->memo_text }}</p>
+          <a href="{{ url('memos', $memo->id) }}" class="btn btn-outline-dark btn-sm">メモを表示する</a>
+        </div>
       </div>
-  </section>
+      @endforeach
+    </div>
+  </div>
+  <div class="col-2"></div>
+</div>
+
+
   @endsection

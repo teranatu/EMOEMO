@@ -1,4 +1,4 @@
-@extends('layouts.apphome')
+@extends('layouts.app')
         
 @section('content')
 <!-- Start Home Section -->
@@ -72,7 +72,7 @@
 <!-- Start landing Section 2 -->
     <div class="row mt-5">
         <div class="col-3 d-none d-sm-block order-0"></div>
-        <div class="text-center col-sm-12 col-xl-4 text-xl-left order-2 order-sm-1">
+        <div class="text-center col-sm-12 col-xl-4 text-xl-left order-2 order-xl-1">
             <div class="color_w">
                 <h1 class="color1">
                 よりわかりやすいメモ機能
@@ -89,7 +89,7 @@
                 </p>
             </div>
         </div>
-        <div class="col-sm-12 col-xl-2 order-1 order-sm-2">
+        <div class="col-sm-12 col-xl-2 order-1 order-xl-2">
             <img class="bdr card m-0-a bdr_obc"  style="width: 200px; height: 200px;" src="https://res.cloudinary.com/dsv09nxlz/image/upload/v1582052488/PROJECT_EMOEMO/EMOEMO_LP/undraw_notes1_cf55_1_kriase.png">
         </div>
         <div class="col-3 d-none d-sm-block order-3"></div>
@@ -141,14 +141,14 @@
                             <h2>STEP1</h2>
                             <p class="color6">twitterアカウントで<br>ログインする</p>
                             <div>
-                                <img class="bdr card mt-5 m-0-a"  style="width: 200px; height: 200px;" src="https://res.cloudinary.com/dsv09nxlz/image/upload/v1582055119/PROJECT_EMOEMO/EMOEMO_LP/undraw_Login_v483_1_1_l9sljv.png">
+                                <img class="bdr card mt-5 m-0-a bdr_obc"  style="width: 200px; height: 200px;" src="https://res.cloudinary.com/dsv09nxlz/image/upload/v1582055119/PROJECT_EMOEMO/EMOEMO_LP/undraw_Login_v483_1_1_l9sljv.png">
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-12">
                             <h2>STEP2</h2>
                             <p class="color6">EMOEMOで<br>メモをかく</p>
                             <div>
-                                <img class="bdr card mt-5 m-0-a"  style="width: 200px; height: 200px;" src="https://res.cloudinary.com/dsv09nxlz/image/upload/v1582055119/PROJECT_EMOEMO/EMOEMO_LP/undraw_Login_v483_1_1_l9sljv.png">
+                                <img class="bdr card mt-5 m-0-a bdr_obc"  style="width: 200px; height: 200px;" src="https://res.cloudinary.com/dsv09nxlz/image/upload/v1582055119/PROJECT_EMOEMO/EMOEMO_LP/undraw_Login_v483_1_1_l9sljv.png">
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-12">

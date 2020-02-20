@@ -45,7 +45,8 @@
 }
 
 .bdr_obc {
-  border-radius: 50px;
+  
+  
   object-fit: contain;
 }
 
@@ -354,27 +355,19 @@ margin-right: 0px!important;
 
 
 
+/* ヘッダー色同じにする為 */
 
+.memos_header {
+  height: 60px;
+  background-color: rgba(0,0,0,0.4);
+}
 
+/* カード面取り */
+.memos_corner {
+  border-radius: 10px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Icon 1 */
+/* イカしたハンバーガーメニュ */
 
 .animated-icon1, .animated-icon2, .animated-icon3 {
   width: 30px;
@@ -551,3 +544,4 @@ margin-right: 0px!important;
 .forcebtn {
     border-color: rgba(255, 255, 255, 0)!important;
   }
+

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use tmhOAuth;
 use App\Http\Requests\MemoRequest;
 use App\Memo;
 use App\Image;
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
 
 //twitter send1
 use ProgrammingSchool\Core\Jobs\Job;
@@ -29,9 +30,16 @@ class MemosController extends Controller
      */
     public function index()
     {
-        $memos = Memo::all();
-
-        return view('memos.index', compact('memos'));
+        if (Auth::check()) {
+            // ログイン済みのときの処理
+            $loginid = Auth::id();
+            $memos = Memo::where('user_id', $loginid)->get();
+            return view('memos.index', compact('memos'));
+        } else {
+          // ログインしていないときの処理
+            return redirect('/');
+        }
+        
     }
 
     /**
@@ -41,7 +49,13 @@ class MemosController extends Controller
      */
     public function create()
     {
-        return view('memos.create');
+        if (Auth::id()) {
+        // ログイン済みのときの処理
+            return view('memos.create');
+        } else {
+          // ログインしていないときの処理
+            return redirect('/');
+        }
     }
 
     /**
@@ -94,7 +108,15 @@ class MemosController extends Controller
         $memo = Memo::findOrFail($id);
         $images = Image::where('memo_id', $id)->get();
 
-        return view('memos.show',compact('memo', 'images'));
+        if ($memo->user_id == Auth::id() ) {
+            // ログインしている時の処理
+            return view('memos.show',compact('memo', 'images'));
+        } else {
+            // ログインしていない時の処理
+            return redirect('/');
+        }
+        
+
     }
 
     /**
@@ -108,7 +130,13 @@ class MemosController extends Controller
         $memo = Memo::findOrFail($id);
         $images = Image::where('memo_id', $id)->get();
 
-        return view('memos.edit', compact('memo', 'images'));
+        if ($memo->user_id == Auth::id() ) {
+            // ログインしている時の処理
+            return view('memos.edit',compact('memo', 'images'));
+        } else {
+            // ログインしていない時の処理
+            return redirect('/');
+        }
     }
 
     /**
