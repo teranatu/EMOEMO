@@ -37,7 +37,7 @@ class MemosController extends Controller
             return view('memos.index', compact('memos'));
         } else {
           // ログインしていないときの処理
-            return redirect('/');
+            return view('errors.403');
         }
         
     }
