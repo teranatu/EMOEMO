@@ -15,7 +15,7 @@
         </ul>
     </div>
   @endif
-  
+
 <form method="POST" action="{{ route('memos.store') }}" accept-charset="UTF-8" enctype="multipart/form-data">
   @CSRF
     <div class="form-group">
@@ -35,7 +35,9 @@
         <div class="card ">
           <label for="image{{ $i }}" class="">{{ $i }}枚目
           </label>
-          <input type="file" name="image_name{{ $i }}" >
+          <label class="images">
+            <input type="file" name="image_name{{ $i }}" class="file">
+          </label>
           @if ($errors->has('logo'))
           <span class="invalid-feedback" role="alert">
             <strong>{{ $errors->first('logo') }}</strong>
@@ -50,7 +52,7 @@
 
     
     <div class="form-group">
-      {!! Form::submit('Add Memo', ['class' => 'btn btn-primary form-control']) !!}
+      <input class="btn btn-primary form-control" type="submit" value="Add Memo">
     </div>
   {!! Form::close() !!}
 @endsection('content')

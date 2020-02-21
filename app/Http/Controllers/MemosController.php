@@ -474,8 +474,25 @@ class MemosController extends Controller
             // ログインしていない時の処理
             return redirect('/');
         }
-
-
         
     }
+
+
+    /*
+    sort memo tweeted method
+    */
+    public function sortmemononetweet()
+    {
+        if (Auth::check() ) {
+            // ログインしている時の処理
+            $memos = Memo::where('user_id', Auth::id())->where('tweeted', 0)->get();
+            return view('memos/index',compact('memos'))->with('status', '未tweetのメモ一覧です');
+        } else {
+            // ログインしていない時の処理
+            return redirect('/');
+        }
+        
+    }
+
+
 }

@@ -35,3 +35,5 @@ Route::prefix('auth')->group(function () {
 
 Route::get('/memos/{memo}/tweet', 'MemosController@tweet')->name('tweet');
 Route::get('/tweeted', 'MemosController@sortmemotweeted')->name('tweeted');
+Route::get('/nonetweet', 'MemosController@sortmemononetweet')->name('nonetweet');
+

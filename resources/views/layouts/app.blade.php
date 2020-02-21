@@ -42,9 +42,13 @@ aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggl
 					<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/auth/twitter">twitterログイン</a></li>
                 @else
+                    <li class="nav-item"><a class="nav-link" href="{{ route('nonetweet') }}">未ツイート</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('tweeted') }}">ツイート済</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('memos.index') }}">全てのメモ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('memos.create',null ,false) }}">メモる</a></li>
+
+                    <li class="nav-item"><a class="nav-link a_cursol" data-toggle="modal" data-toggle="modal" data-target="#exampleModalScrollable">メモる</a></li>
+
+
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
@@ -66,5 +70,7 @@ aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggl
         @yield('content')
 
     </div>
+    
+
 </body>
 </html>

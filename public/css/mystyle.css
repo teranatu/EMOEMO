@@ -355,6 +355,21 @@ margin-right: 0px!important;
 
 
 
+
+
+
+
+/* インデックス関連 */
+
+
+
+
+
+
+
+
+
+
 /* ヘッダー色同じにする為 */
 
 .memos_header {
@@ -362,10 +377,16 @@ margin-right: 0px!important;
   background-color: rgba(0,0,0,0.4);
 }
 
+.a_cursol {
+  cursor: pointer;;
+}
+
 /* カード面取り */
 .memos_corner {
   border-radius: 10px;
 }
+
+
 
 /* イカしたハンバーガーメニュ */
 
@@ -545,3 +566,30 @@ margin-right: 0px!important;
     border-color: rgba(255, 255, 255, 0)!important;
   }
 
+
+
+
+  /* create関連 */
+
+.tweetbox_r {
+  border-radius: 15px;
+}
+.bigx {
+  font-size: 60px;
+}
+
+.filelabel { 
+
+  border-radius: 3em;        /* 角丸 */
+  display: inline-block;     /* インラインブロック化 */
+}
+.filelabel img {
+  vertical-align: bottom;    /* 画像の垂直方向の配置 */
+}
+.filelabel:hover {
+  opacity: 0.5;              /* 半透明 */
+  cursor: pointer;           /* マウス形状(ポインタ) */
+}
+#filesend {
+  display: none;  /* 本来のファイル選択フォームは非表示に */
+}
