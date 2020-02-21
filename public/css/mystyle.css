@@ -45,8 +45,6 @@
 }
 
 .bdr_obc {
-  
-  
   object-fit: contain;
 }
 
@@ -558,9 +556,17 @@ margin-right: 0px!important;
   left: 8px;
   }
 
-  button:focus {
-    outline:0;
-  }
+button:focus {
+  outline:none !important;
+  box-shadow: none !important;
+}
+
+.btn:focus {
+  outline:none!important;
+  box-shadow: none !important;
+}
+
+
   
 .forcebtn {
     border-color: rgba(255, 255, 255, 0)!important;
@@ -592,4 +598,53 @@ margin-right: 0px!important;
 }
 #filesend {
   display: none;  /* 本来のファイル選択フォームは非表示に */
+}
+
+
+
+  /* show関連 */
+.color_btn {
+  background-color: #806cf1;
+  padding: 10px 20px;
+  border: none;
+}
+
+.color_btn:hover {
+  background-color: #806cf1!important;
+  opacity: 0.9;
+}
+
+.color_btn_delete {
+  background-color: #f16c6c;
+  padding: 10px 20px;
+  border: none;
+}
+
+.color_btn_delete:hover {
+  background-color: #f16c6c!important;
+  opacity: 0.9;
+}
+
+.color_btn_twitter {
+  background-color: #38A1F3;
+  padding: 10px 20px;
+  border: none;
+}
+
+.color_btn_twitter:hover {
+  background-color: #38A1F3!important;
+  opacity: 0.9;
+}
+
+
+/* edit関連 */
+
+.color_btn_edit {
+  background-color: #806cf1;
+  border: none;
+}
+
+.color_btn_edit:hover {
+  background-color: #806cf1!important;
+  opacity: 0.9;
 }

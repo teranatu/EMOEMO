@@ -2,65 +2,47 @@
 
 <!-- image_upload -->
 
-<div class="row">
+    <div class="row">
 
       <!-- 1st -->
-
-      <div class="col-3">
-        <div class="card">
-          <label for="image1" class="">1枚目</label>
-          <input type="file" name="image_name1" >
-            @if ($errors->has('image1'))
-            <span class="invalid-feedback" role="alert">
-              <strong>{{ $errors->first('image1') }}</strong>
-            </span>
-            @endif
-        </div>
-      </div>
-
+        <label class="col-3 p-0">
+          <!-- ▽見せる部分 -->
+          <span class="filelabel" title="ファイルを選択">
+            <img src="https://res.cloudinary.com/dsv09nxlz/image/upload/v1582193711/PROJECT_EMOEMO/EMOEMO_LP/%E5%86%99%E7%9C%9F%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B310_eyjelg.png" width="40" height="40" alt="＋画像">
+          </span>
+          <!-- ▽本来の選択フォームは隠す -->
+          <input type="file"  id="filesend" name="image_name1">
+        </label>
 
       <!-- 2nd -->
+      <label class="col-3 p-0">
+          <!-- ▽見せる部分 -->
+          <span class="filelabel" title="ファイルを選択">
+            <img src="https://res.cloudinary.com/dsv09nxlz/image/upload/v1582193711/PROJECT_EMOEMO/EMOEMO_LP/%E5%86%99%E7%9C%9F%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B310_eyjelg.png" width="40" height="40" alt="＋画像">
+          </span>
+          <!-- ▽本来の選択フォームは隠す -->
+          <input type="file"  id="filesend" name="image_name2">
+        </label>
 
-      <div class="col-3">
-        <div class="card">
-          <label for="image2" class="">2枚目</label>
-          <input type="file" name="image_name2" >
-            @if ($errors->has('image2'))
-            <span class="invalid-feedback" role="alert">
-              <strong>{{ $errors->first('image2') }}</strong>
-            </span>
-            @endif
-        </div>
-      </div>
+      <!-- 3tn -->
+      <label class="col-3 p-0">
+          <!-- ▽見せる部分 -->
+          <span class="filelabel" title="ファイルを選択">
+            <img src="https://res.cloudinary.com/dsv09nxlz/image/upload/v1582193711/PROJECT_EMOEMO/EMOEMO_LP/%E5%86%99%E7%9C%9F%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B310_eyjelg.png" width="40" height="40" alt="＋画像">
+          </span>
+          <!-- ▽本来の選択フォームは隠す -->
+          <input type="file"  id="filesend" name="image_name3">
+        </label>
+      
+      <!-- 4tn -->
+      <label class="col-3 p-0">
+          <!-- ▽見せる部分 -->
+          <span class="filelabel" title="ファイルを選択">
+            <img src="https://res.cloudinary.com/dsv09nxlz/image/upload/v1582193711/PROJECT_EMOEMO/EMOEMO_LP/%E5%86%99%E7%9C%9F%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B310_eyjelg.png" width="40" height="40" alt="＋画像">
+          </span>
+          <!-- ▽本来の選択フォームは隠す -->
+          <input type="file"  id="filesend" name="image_name4">
+        </label>
+      
+    </div>
 
-
-      <!-- 3th -->
-
-      <div class="col-3">
-        <div class="card">
-          <label for="image3" class="">3枚目</label>
-          <input type="file" name="image_name3" >
-            @if ($errors->has('image3'))
-            <span class="invalid-feedback" role="alert">
-              <strong>{{ $errors->first('image3') }}</strong>
-            </span>
-            @endif
-        </div>
-      </div>
-
-
-      <!-- 4th -->
-
-      <div class="col-3">
-        <div class="card">
-          <label for="image4" class="">4枚目</label>
-          <input type="file" name="image_name4" >
-            @if ($errors->has('image4'))
-            <span class="invalid-feedback" role="alert">
-              <strong>{{ $errors->first('image4') }}</strong>
-            </span>
-            @endif
-        </div>
-      </div>
-
-</div>

@@ -7,37 +7,14 @@
       {{ session('status') }}
     </div>
   @endif
-  
 
-<div class="row">
-  <div class="col-2">
-
-    <div class="">
-      <a href="{{ route('tweet', $memo->id) }}">
-      <input class="btn btn-primary" type="submit" value="tweet">
-      </a>
-    </div>
-    <div class="d-block">
-      <a href="{{ action('MemosController@edit', [$memo->id]) }}">
-      <input class="btn btn-primary" type="submit" value="編集">
-      </a>
-    </div>
-    <form method="POST" action="{{ route('memos.destroy', [$memo->id]) }}" accept-charset="UTF-8" class="d-inline">
-      <input name="_method" type="hidden" value="DELETE">
-      <input type="submit" value="削除" class="btn btn-danger">
-      @csrf
-    </form>
-    <div class="d-inline">
-      <a href="{{ route('memos.index') }}">
-      <input class="btn btn-primary" type="submit" value="戻る">
-      </a>
-    </div>
-  </div>
+<div class="row mt-5">
+  <div class="col-2"></div>
 
   <div class="col-8 card">
-    <h1>{{ $memo->memo_title }}</h1>
-    <hr>
-    <div class="memo_text">{{ $memo->memo_text }}</div>
+    <h1 class="ml-3">{{ $memo->memo_title }}</h1>
+    <hr class="p-0 m-0">
+    <div class="memo_text mt-3 ml-3">{{ $memo->memo_text }}</div>
     <?php $i = 0; ?>
     <div class="row">
     @foreach($images as $image)
@@ -56,6 +33,9 @@
   </div>
 
   <div class="col-2"></div>
+
+  @include('btn.show')
+
 </div>
 
 @endsection

@@ -4,16 +4,15 @@
 <div class="memos_header"></div>
 @include('errors.alert')
 
-  <h1 class="text-center">Memos</h1>
+<h1 class="text-center mt-4">Memos</h1>
 
 <!-- details card section starts from here -->
 <div class="row">
   <div class="col-md-2 col-sm-12 text-center">
-  
 
 
 <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+  <button type="button" class="btn btn-primary color_btn" data-toggle="modal" data-target="#exampleModalScrollable">
     メモる
   </button>
 
@@ -42,7 +41,7 @@
   <div class="container">
     <div class="row">
       @for ($i =1; $i <5; $i++)
-        <label class="col-sm-12 col-md-3 p-0">
+        <label class="col-3 p-0">
           <!-- ▽見せる部分 -->
           <span class="filelabel" title="ファイルを選択">
             <img src="https://res.cloudinary.com/dsv09nxlz/image/upload/v1582193711/PROJECT_EMOEMO/EMOEMO_LP/%E5%86%99%E7%9C%9F%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B310_eyjelg.png" width="40" height="40" alt="＋画像">

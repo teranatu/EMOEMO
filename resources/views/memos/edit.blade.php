@@ -1,17 +1,18 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
-
-  <h1>メモ編集面: {{ $memo->memo_title }}</h1>
-
-  <hr/>
+<div class="memos_header"></div>
 
 <!-- if_errors_create_S  -->
-  @include('errors.form_errors')
+@include('errors.form_errors')
 <!-- if_errors_create_E  -->
 
-<!-- Edit_form-S -->
+<h1 class="text-center mt-4">{{ $memo->memo_title }}</h1>
 
+<!-- Edit_form-S -->
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8">
   <!-- post_form-S -->
     <form method="POST" action="{{ route('memos.update', [$memo->id]) }}" accept-charset="UTF-8" enctype="multipart/form-data">
     @method('PATCH')
@@ -37,18 +38,14 @@
 
   <!-- submit_form-S -->
     <div class="form-group">
-      {!! Form::submit('編集完了', ['class' => 'btn btn-primary form-control']) !!}
+      {!! Form::submit('編集完了', ['class' => 'btn btn-primary color_btn_edit form-control']) !!}
     </div>  
   <!-- submit_form-E -->
 
 <!-- Edit_form-E -->
 
-<!-- buttons -->
-  <div class="d-inline">
-    <a href="{{ route('memos.index') }}">
-    <input class="btn btn-primary" type="submit" value="戻る">
-    </a>
-  </div>
-<!-- buttons -->
 
+  </div>
+  <div class="col-2"></div>
+</div>
 @endsection('content')
