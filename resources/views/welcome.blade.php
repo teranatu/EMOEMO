@@ -148,14 +148,14 @@
                             <h2>STEP2</h2>
                             <p class="color6">EMOEMOで<br>メモをかく</p>
                             <div>
-                                <img class="bdr card mt-5 m-0-a bdr_obc"  style="width: 200px; height: 200px;" src="https://res.cloudinary.com/dsv09nxlz/image/upload/v1582055119/PROJECT_EMOEMO/EMOEMO_LP/undraw_Login_v483_1_1_l9sljv.png">
+                                <img class="bdr card mt-5 m-0-a bdr_obc"  style="width: 200px; height: 200px;" src="https://res.cloudinary.com/dsv09nxlz/image/upload/v1582355119/PROJECT_EMOEMO/EMOEMO_LP/undraw_public_discussion_btnw_1_kcb73q.png">
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-12">
                             <h2>STEP3</h2>
                             <p class="color6">メモから<br>1clickでつぶやく</p>
                             <div class="text-center">
-                                <img class="bdr card mt-5 m-0-a bdr_obc"  style="width: 200px; height: 200px;" src="https://res.cloudinary.com/dsv09nxlz/image/upload/v1582055119/PROJECT_EMOEMO/EMOEMO_LP/undraw_Login_v483_1_1_l9sljv.png">
+                                <img class="bdr card mt-5 m-0-a bdr_obc"  style="width: 200px; height: 200px;" src="https://res.cloudinary.com/dsv09nxlz/image/upload/v1582355113/PROJECT_EMOEMO/EMOEMO_LP/undraw_click_here_2li1_1_kphh5r.png">
                             </div>
                         </div>
                     </div>
