@@ -3,6 +3,7 @@
 @section('content')
 <div class="memos_header"></div>
 @include('errors.alert')
+@include('errors.form_errors')
 
 <h1 class="text-center mt-4">Memos</h1>
 
