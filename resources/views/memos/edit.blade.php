@@ -2,10 +2,8 @@
 
 @section('content')
 <div class="memos_header"></div>
-
-<!-- if_errors_create_S  -->
+@include('errors.alert')
 @include('errors.form_errors')
-<!-- if_errors_create_E  -->
 
 <h1 class="text-center mt-4">{{ $memo->memo_title }}</h1>
 

@@ -1,20 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="memos_header"></div>
+@include('errors.alert')
+@include('errors.form_errors')
 
   <h1>メモ新規作成画面</h1>
 
   <hr/>
 
-  @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-  @endif
 
 <form method="POST" action="{{ route('memos.store') }}" accept-charset="UTF-8" enctype="multipart/form-data">
   @CSRF

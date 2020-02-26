@@ -27,7 +27,7 @@
 <!-- Navigation -->
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-	<a href="#" class="navbar-brand"><img src="https://res.cloudinary.com/dsv09nxlz/image/upload/c_scale,h_44/v1581306872/PROJECT_EMOEMO/EMOEMO_LP/logo_k5jvi5.png"></a>
+    <a href="{{ route('memos.index') }}" class="navbar-brand"><img src="https://res.cloudinary.com/dsv09nxlz/image/upload/c_scale,h_44/v1581306872/PROJECT_EMOEMO/EMOEMO_LP/logo_k5jvi5.png"></a>
 
 <!-- Collapse button -->
 <button class="navbar-toggler first-button forcebtn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
@@ -38,24 +38,22 @@ aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggl
 <!-- Collapsible content -->
 <div class="collapse navbar-collapse" id="navbarSupportedContent20">
 				<ul class="navbar-nav ml-auto">
-                    @guest
-					<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                @guest
                     <li class="nav-item"><a class="nav-link" href="/auth/twitter">twitterログイン</a></li>
                 @else
                     <li class="nav-item"><a class="nav-link" href="{{ route('nonetweet') }}">未ツイート</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('tweeted') }}">ツイート済</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('memos.index') }}">全てのメモ</a></li>
-
+                @if(\Route::is('memos.index'))
                     <li class="nav-item"><a class="nav-link a_cursol" data-toggle="modal" data-toggle="modal" data-target="#exampleModalScrollable">メモる</a></li>
-
-
+                @endif
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('ログアウト') }}</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
                     </form>

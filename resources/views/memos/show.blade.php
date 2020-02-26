@@ -2,11 +2,8 @@
 
 @section('content')
 <div class="memos_header"></div>
-  @if (session('status'))
-    <div class="alert alert-success">
-      {{ session('status') }}
-    </div>
-  @endif
+@include('errors.alert')
+@include('errors.form_errors')
 
 <div class="row mt-5">
   <div class="col-2"></div>
@@ -37,5 +34,4 @@
   @include('btn.show')
 
 </div>
-
 @endsection
