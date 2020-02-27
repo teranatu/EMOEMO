@@ -11,12 +11,12 @@
           </button>
           <h5 class="modal-title m-0-a" id="exampleModalCenteredLabel">
             <label for="memo_title" class="mt-4 mr-2">メモ名</label>
-            <input class="" name="memo_title" type="text" id="memo_title">
+            <input class="" name="memo_title" type="text" id="memo_title" value="{{ old('memo_title') }}">
           </h5>
         </div>
         <div class="modal-body">
           <label for="memo_text">メモ内容※こちらがツイートされます！</label>
-          <textarea class="form-control" name="memo_text" cols="50" rows="10" id="memo_text"></textarea>
+          <textarea class="form-control" name="memo_text" cols="50" rows="10" id="memo_text">{{ old('memo_text') }}</textarea>
         </div>
         <div class="modal-footer">
 
