@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="memos_header"></div>
+<div class="memos_header sticky-top"></div>
 @include('errors.alert')
 @include('errors.form_errors')
 
