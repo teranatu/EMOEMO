@@ -23,7 +23,13 @@
     </div>
     <div class="form-group">
     <label for="memo_text">メモ内容:</label>
-      <textarea class="form-control" name="memo_text" cols="50" rows="10" id="memo_text">{{ $memo->memo_text }}</textarea>
+    <textarea class="form-control" name="memo_text" cols="50" rows="10" id="memo_text" onKeyUp="countLength(value, 'textlength');">{{ $memo->memo_text }}</textarea>
+      <p id="textlength">0文字</p>
+      <script>
+        function countLength( text, field ) {
+            document.getElementById(field).innerHTML = text.length + "文字";
+        }
+      </script>
     </div>
 
   <!-- image_show-S -->
@@ -31,13 +37,13 @@
   <!-- image_show-E -->
 
   <!-- image_upload-S -->
-    @include('images.post')  
+    @include('images.post')
   <!-- image_upload-E -->
 
   <!-- submit_form-S -->
     <div class="form-group">
       {!! Form::submit('編集完了', ['class' => 'btn btn-primary color_btn_edit form-control']) !!}
-    </div>  
+    </div>
   <!-- submit_form-E -->
 
 <!-- Edit_form-E -->
