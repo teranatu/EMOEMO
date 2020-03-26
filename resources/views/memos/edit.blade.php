@@ -31,7 +31,7 @@
         function isCount(obj) {
           let value    = obj.value;
           let count    = 0;
-          let halfSize = value.match(/[\da-zA-Z]/g);
+          let halfSize = value.match(/[\da-zA-Z ]/g);
 
           if(halfSize) {
             count = value.length - halfSize.length / 2
