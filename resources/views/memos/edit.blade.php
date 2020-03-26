@@ -23,12 +23,24 @@
     </div>
     <div class="form-group">
     <label for="memo_text">メモ内容:</label>
-    <textarea class="form-control" name="memo_text" cols="50" rows="10" id="memo_text" onKeyUp="countLength(value, 'textlength');">{{ $memo->memo_text }}</textarea>
-      <p id="textlength">0文字</p>
+    <textarea class="form-control" name="memo_text" cols="50" rows="10" id="memo_text" onkeyup="isCount(this)">{{ $memo->memo_text }}</textarea>
+    <p id="textlength">0文字</p>
       <script>
-        function countLength( text, field ) {
-            document.getElementById(field).innerHTML = text.length + "文字";
-        }
+        'use strict'
+
+        function isCount(obj) {
+          let value    = obj.value;
+          let count    = 0;
+          let halfSize = value.match(/[\da-zA-Z]/g);
+
+          if(halfSize) {
+            count = value.length - halfSize.length / 2
+          } else {
+            count = value.length;
+          };
+
+          document.getElementById('textlength').textContent = count + '文字';
+        };
       </script>
     </div>
 
