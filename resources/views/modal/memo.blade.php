@@ -17,7 +17,7 @@
         <div class="modal-body">
           <label for="memo_text">メモ内容※こちらがツイートされます！</label>
           <textarea class="form-control" name="memo_text" cols="50" rows="10" id="memo_text" onkeyup="isCount(this)">{{ old('memo_text') }}</textarea>
-          <p id="textlength pt-4">0文字</p>
+          <p id="textlength">0文字</p>
         </div>
         <div class="modal-footer">
 
