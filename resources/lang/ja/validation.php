@@ -82,7 +82,7 @@ return [
         'string' => ':attributeは:max文字以下でお願いします。',
         'array' => 'The :attribute may not have more than :max items.',
     ],
-    'max_width' => 'あああああああああああ',
+    'max_width' => '140文字以下でお願いします。',
     'mimes' => 'The :attribute must be a file of type: :values.',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
