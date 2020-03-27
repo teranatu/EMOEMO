@@ -140,6 +140,11 @@ return [
          * twitterlogin
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
+
+        /*
+         * countingcharset
+         */
+        // App\Providers\iscountServiceProvider::class,
         
 
 

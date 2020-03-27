@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Validator;
 
 class MemoRequest extends FormRequest
 {
@@ -25,7 +26,7 @@ class MemoRequest extends FormRequest
     {
         return [
             'memo_title' => 'required|min:3',
-            'memo_text' => 'required|max:280',
+            'memo_text' => 'required|max_width:290',
         ];
     }
 }
