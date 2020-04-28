@@ -29,8 +29,7 @@ class AuthController extends Controller
             return redirect()->route('/')->withErrors('ユーザー情報の取得に失敗しました。');
         }
         //トークンで登録状況を調べる
-        $user = User::where(['token' => $token])->where(['tokenSecret
-        ' => $tokenSecret])->first();
+        $user = User::where(['token' => $token,'tokenSecret' => $tokenSecret])->first();
         
         //トークンの保存状態の有無で条件分岐
         if($user){
