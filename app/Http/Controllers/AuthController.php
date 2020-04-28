@@ -32,14 +32,29 @@ class AuthController extends Controller
         $user = User::where(['token' => $token])->where(['tokenSecret
         ' => $tokenSecret])->first();
         
-        //トークンの有無で条件分岐
+        //トークンの保存状態の有無で条件分岐
         if($user){
-            //トークンがある場合の処理
-            
+            //それぞれのパラメーターが変更されていれば更新する。
+            if($user->name!== $userSocial->getName()) {
+                $user->name = $userSocial->getName();
+                $user->save();
+            }
+            if($user->email !== $userSocial->getEmail()) {
+                $user->email = $userSocial->getEmail();
+                $user->save();
+            }
+            if($user->twitter_id !== $userSocial->getNickname()) {
+                $user->twitter_id = $userSocial->getNickname();
+                $user->save();
+            }
+            if($user->avatar !== $userSocial->getAvatar()) {
+                $user->avatar = $userSocial->getAvatar();
+                $user->save();
+            }
             //ログインしてトップページにリダイレクト
             Auth::login($user);
             return redirect('/memos');
-        }else{
+        } else {
             //メールアドレスがなければユーザ登録
             $newuser = new User;
             $newuser->name = $userSocial->getName();
