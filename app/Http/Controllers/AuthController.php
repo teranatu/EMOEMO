@@ -24,7 +24,6 @@ class AuthController extends Controller
             $userSocial = Socialite::driver('twitter')->user();
             $token = $userSocial->token;
             $tokenSecret = $userSocial->tokenSecret;
-            dd($userSocial);
         } catch (Exception $e) {
             // OAuthによるユーザー情報取得失敗
             return redirect()->route('/')->withErrors('ユーザー情報の取得に失敗しました。');
