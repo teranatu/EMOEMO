@@ -32,8 +32,7 @@ class MemosController extends Controller
     {
         if (Auth::check()) {
             // ログイン済みのときの処理
-            $loginid = Auth::id();
-            $memos = Memo::where('user_id', $loginid)->get();
+            $memos = Memo::where('user_id', Auth::id() )->get();
             return view('memos.index', compact('memos'));
         } else {
           // ログインしていないときの処理
@@ -68,31 +67,27 @@ class MemosController extends Controller
     {
         //メモを作成し格納
         $memo = Auth::user()->memos()->create($request->validated());
-        //画像ファイルを配列に格納
+        //画像ファイルがあれば格納してその数分保存する。
         $images = $request->file();
-        //imagesを回す
-    $i = 0;
-    foreach ($images as $image) {
-        $image_name = $image->getRealPath();
-        // Cloudinaryへアップロード
-        Cloudder::upload($image_name, null);
-        list($width, $height) = getimagesize($image_name);
-        // 直前にアップロードした画像のユニークIDを取得します。
-        $publicId = Cloudder::getPublicId();
-        // URLを生成します
-        $logoUrl = Cloudder::show($publicId, [
-            'width'     => $width,
-            'height'    => $height
-            ]);
-        //imageを作ってdbに格納
-        $i++;
-        $image = new Image;
-        $image->image_name = $logoUrl;
-        $image->image_number = $i;
-        
-        $image->memo_id = $memo->id;
-        $image->save();
-    }
+        foreach ($images as $key => $image) {
+            $image_name = $image->getRealPath();
+            // Cloudinaryへアップロード
+            Cloudder::upload($image_name, null);
+            list($width, $height) = getimagesize($image_name);
+            // 直前にアップロードした画像のユニークIDを取得します。
+            $publicId = Cloudder::getPublicId();
+            // URLを生成します
+            $logoUrl = Cloudder::show($publicId, [
+                'width'     => $width,
+                'height'    => $height
+                ]);
+            //imageを作ってdbに格納
+            $image = new Image;
+            $image->image_name = $logoUrl;
+            $image->image_number = ($key + 1);
+            $image->memo_id = $memo->id;
+            $image->save();
+        }
 
         return redirect('memos')->with('status', 'メモ作成完了です');
     }
