@@ -48,6 +48,7 @@ aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggl
                 @if(\Route::is('memos.index'))
                     <li class="nav-item"><a class="nav-link a_cursol" data-toggle="modal" data-toggle="modal" data-target="#exampleModalScrollable">メモる</a></li>
                 @endif
+                    <img src="{{ Auth::user()->avatar }}" style="height: 45px;width: 45px;" class="rounded-circle border border-light">
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
