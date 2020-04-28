@@ -21,24 +21,21 @@ class AuthController extends Controller
     {
         // ユーザ属性を取得
         try {
-            $userSocial = Socialite::driver('twitter')->userFromTokenAndSecret(env('TWITTER_ACCESS_TOKEN'), env('TWITTER_ACCESS_TOKEN_SECRET'));
+            $userSocial = Socialite::driver('twitter')->user();
             $token = $userSocial->token;
             $tokenSecret = $userSocial->tokenSecret;
+            dd($userSocial);
         } catch (Exception $e) {
             // OAuthによるユーザー情報取得失敗
             return redirect()->route('/')->withErrors('ユーザー情報の取得に失敗しました。');
         }
-        //メールアドレスで登録状況を調べる
-        $user = User::where(['email' => $userSocial->getEmail()])->first();
+        //トークンで登録状況を調べる
+        $user = User::where(['token' => $token])->where(['tokenSecret
+        ' => $tokenSecret])->first();
         
-        //メールアドレス登録の有無で条件分岐
+        //トークンの有無で条件分岐
         if($user){
-            //email登録がある場合の処理
-            //twitter id　が変更されている場合、DBアップデード
-            if($user->twitter_id  !== $userSocial->getNickname()){
-                $user->twitter_id = $userSocial->getNickname();
-                $user->save();
-            }
+            //トークンがある場合の処理
             
             //ログインしてトップページにリダイレクト
             Auth::login($user);
