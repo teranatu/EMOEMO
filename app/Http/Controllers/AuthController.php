@@ -21,7 +21,7 @@ class AuthController extends Controller
     {
         // ユーザ属性を取得
         try {
-            $userSocial = Socialite::driver('twitter')->user();
+            $userSocial = Socialite::driver('twitter')->userFromTokenAndSecret(env('TWITTER_ACCESS_TOKEN'), env('TWITTER_ACCESS_TOKEN_SECRET'));
             $token = $userSocial->token;
             $tokenSecret = $userSocial->tokenSecret;
         } catch (Exception $e) {
