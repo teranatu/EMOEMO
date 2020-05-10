@@ -15,7 +15,7 @@ Route::get('/', function () {
     return redirect()->route('lp');
 });
 
-Route::get('/LP', function () {
+Route::get('/', function () {
     return view('welcome');
 })->name('lp');
 
