@@ -67,8 +67,9 @@ class MemosController extends Controller
     {
         //メモを作成し格納
         $memo = Auth::user()->memos()->create($request->validated());
-        //画像ファイルがあれば格納してその数分保存する。
+        //画像ファイルを配列に格納
         $images = $request->file();
+        //imagesを回す
         foreach ($images as $key => $image) {
             $image_name = $image->getRealPath();
             // Cloudinaryへアップロード
@@ -84,7 +85,7 @@ class MemosController extends Controller
             //imageを作ってdbに格納
             $image = new Image;
             $image->image_name = $logoUrl;
-            $image->image_number = ($key + 1);
+            $image->image_number = (int)(mb_substr($key, -1));
             $image->memo_id = $memo->id;
             $image->save();
         }
