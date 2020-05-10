@@ -12,8 +12,12 @@
 */
 
 Route::get('/', function () {
+    return redirect()->route('lp');
+});
+
+Route::get('/LP', function () {
     return view('welcome');
-})->middleware('ssl');
+})->name('lp');
 
 Auth::routes();
 
